@@ -11,19 +11,19 @@ using Microsoft.AspNetCore.Builder;
 
 namespace HelloWebApi.Middlewares
 {
-    public static class RequestCultureMiddlewareExtensions
+    public static class ExtractRequestMiddlewareExtensions
     {
-        public static IApplicationBuilder UseAttractRequest(
+        public static IApplicationBuilder UseExtractRequest(
             this IApplicationBuilder builder)
         {
-            return builder.UseMiddleware<AttractRequest>();
+            return builder.UseMiddleware<ExtractRequest>();
         }
     }
-    public class AttractRequest
+    public class ExtractRequest
     {
         private readonly RequestDelegate _next;
         private string strHeader = "Key : Values \n";
-        public AttractRequest(RequestDelegate next)
+        public ExtractRequest(RequestDelegate next)
         {
             _next = next;
         }
